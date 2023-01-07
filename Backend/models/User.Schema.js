@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const types={ type: String, require: true,unique:true }
+const types={ type: String, require: true }
 const UserSchema = Schema({
   gender:types,
   name: {
