@@ -1,0 +1,48 @@
+#home {
+  display: flex;
+  align-items: center;
+  background: #e3e3e3;
+  justify-content: center;
+  height: 100vh;
+ 
+  width: 100%;
+
+}
+#home > div {
+  height: 50vh;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  margin: auto;
+  padding: 10px;
+  background: #ffffff;
+  flex-wrap: wrap;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+}
+#home>div button{
+    padding: 20px;
+    border-radius: 5px;
+    border:none;
+    font-size: medium;
+    font-family:'poppins', Courier, monospace;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 500ms;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+#home>div button:hover{
+    transform: scale(1.1);
+}
+#home>div button:nth-child(1){
+    background: green;
+}
+#home>div button:nth-child(2){
+    background: rgb(223, 0, 0);
+}
+#home>div a button:nth-child(1){
+    background: blue;
+}
