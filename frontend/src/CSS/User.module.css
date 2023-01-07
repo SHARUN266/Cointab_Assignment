@@ -61,6 +61,13 @@ tr:nth-child(even) {
     transition: 500ms;
     
 }
+#filterBox{
+  display: flex;
+  align-items: center;
+  gap: 2%;
+  
+}
+
 button:disabled,
 button[disabled]{
   cursor: not-allowed;

@@ -16,6 +16,7 @@ export default function UserListTable({ data }) {
         <th>Location</th>
         <th>Country</th>
       </tr>
+      {data?.length==0&& ( <h1>No user available</h1> ) }
       {data?.map((user) => (
         <tr key={user.id}>
           <td>

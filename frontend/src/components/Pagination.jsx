@@ -12,7 +12,7 @@ export default function Pagination({HandlePagination,page,data}) {
       </button>
       <span>{page}</span>
       <button
-        disabled={data?.length == page}
+        disabled={data?.length <= page}
         style={{ background: "blue" }}
         onClick={() => HandlePagination(+1)}
       >

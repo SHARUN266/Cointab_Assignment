@@ -46,3 +46,9 @@
 #home>div a button:nth-child(1){
     background: blue;
 }
+button:disabled,
+button[disabled]{
+  cursor: not-allowed !important;
+  background: gray !important;
+  
+}

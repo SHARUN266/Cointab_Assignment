@@ -14,12 +14,12 @@ export const UserApi = createApi({
     postUser: builder.mutation({
       query: () => ({
         url: "/postuser",
-        methid: "POST",
+        method: "POST",
       }),
     }),
     deleteUser: builder.mutation({
       query: () => ({
-        url: "/deleteuser",
+        url: "/deleteusers",
         method: "DELETE",
       }),
     }),
