@@ -15,7 +15,7 @@ function UserDetails() {
     page,
     filter: filterData,
   });
-  console.log(filterData);
+
   function HandlePagination(value) {
     setPage((prev) => prev + value);
   }

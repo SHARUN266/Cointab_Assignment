@@ -6,8 +6,7 @@ export const UserApi = createApi({
   endpoints: (builder) => ({
     allUser: builder.query({
       query: (args) => {
-        //const {page,filter}=args
-        console.log(args.filter)
+      
         return { url: `/getuser?page=${args.page}&filter=${args.filter}`, method: "GET" };
       },
     }),

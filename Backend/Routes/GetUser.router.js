@@ -6,7 +6,7 @@ user.get("/getuser", async (req, res) => {
   const page = req.query.page || 1;
   const filter=req.query.filter
   try {
-    console.log(filter)
+   
     if(filter==="undefined"){
       const data = await UserModel.find()
       
