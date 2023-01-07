@@ -5,10 +5,11 @@ export const UserApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:4500/" }),
   endpoints: (builder) => ({
     allUser: builder.query({
-      query: (page ) => ({
-        url: `/getuser?page=${page}`,
-        method: "GET",
-      }),
+      query: (args) => {
+        //const {page,filter}=args
+        console.log(args.filter)
+        return { url: `/getuser?page=${args.page}&filter=${args.filter}`, method: "GET" };
+      },
     }),
 
     postUser: builder.mutation({

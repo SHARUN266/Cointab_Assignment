@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,22 +9,32 @@ import style from "../CSS/User.module.css";
 import { useAllUserQuery } from "../RTK/App";
 function UserDetails() {
   const [page, setPage] = useState(1);
+  const [filterData, setFilter] = useState();
 
-  const { data, isLoading, isError, isSuccess } = useAllUserQuery(page);
+  const { data, isLoading, isError, isSuccess, refetch } = useAllUserQuery({
+    page,
+    filter: filterData,
+  });
+  console.log(filterData);
   function HandlePagination(value) {
     setPage((prev) => prev + value);
   }
-
+  useEffect(() => {
+    refetch();
+  }, [filterData]);
+  function handleFilter(e) {
+    setFilter(e.target.value);
+  }
   return (
     <div id={style.bigBox}>
       <div id={style.user}>
         <h2>User Details</h2>
         <div id={style.filterBox}>
           <Link to="/">
-            <i class="fa-solid fa-chevron-left"></i>
+            <i className="fa-solid fa-chevron-left"></i>
           </Link>
           <select
-            //onChange={(e) => handleFilter(e)}
+            onChange={(e) => handleFilter(e)}
             style={{
               float: "left",
               padding: "5px",

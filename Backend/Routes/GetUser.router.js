@@ -4,13 +4,23 @@ const UserModel = require("../models/User.Schema");
 user.get("/getuser", async (req, res) => {
   const perpage = req.query.perpage || 10;
   const page = req.query.page || 1;
-
+  const filter=req.query.filter
   try {
-    const data = await UserModel.find()
+    console.log(filter)
+    if(filter==="undefined"){
+      const data = await UserModel.find()
       
       .limit(perpage)
       .skip(page);
     res.status(200).json(data);
+    }else{
+      const data = await UserModel.find({gender:filter})
+      
+      .limit(perpage)
+      .skip(perpage*page);
+    res.status(200).json(data);
+    }
+    
   } catch (err) {
     res.status(404).json(err.message);
   }
