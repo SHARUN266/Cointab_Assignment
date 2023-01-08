@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // Returns a user s api.
 export const UserApi = createApi({
   reducerPath: "userApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:4500/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://cointabbackend.onrender.com/" }),
   // Get all users.
   endpoints: (builder) => ({
     allUser: builder.query({
