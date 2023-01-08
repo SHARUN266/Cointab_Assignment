@@ -16,9 +16,9 @@ export default function UserListTable({ data }) {
         <th>Location</th>
         <th>Country</th>
       </tr>
-      {data?.length==0&& ( <h1>No user available</h1> ) }
-      {data?.map((user) => (
-        <tr key={user.id}>
+      {data?.length == 0 && <h1>No user available</h1>}
+      {data?.map((user, i) => (
+        <tr key={i + 1}>
           <td>
             <img
               style={{ objectFit: "cover" }}
@@ -32,8 +32,7 @@ export default function UserListTable({ data }) {
           <td>{user.email}</td>
           <td>{user.phone}</td>
           <td>
-            {DateFormate(user?.dob.date)}
-           ({user.dob.age}){" "}
+            {DateFormate(user?.dob.date)}({user.dob.age}){" "}
           </td>
           <td>{user.location.city}</td>
           <td>{user.location.country}</td>

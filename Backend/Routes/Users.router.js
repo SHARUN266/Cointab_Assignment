@@ -4,38 +4,32 @@ const UserModel = require("../models/User.Schema");
 user.get("/getuser", async (req, res) => {
   const perpage = req.query.perpage || 10;
   const page = req.query.page || 1;
-  const filter=req.query.filter
+  const filter = req.query.filter;
   try {
-   
-    if(filter==="undefined"){
+    if (filter === "undefined") {
       const data = await UserModel.find()
-      
-      .limit(perpage)
-      .skip(page);
-    res.status(200).json(data);
-    }else{
-      const data = await UserModel.find({gender:filter})
-      
-      .limit(perpage)
-      .skip(perpage*page);
-    res.status(200).json(data);
+
+        .limit(perpage)
+        .skip(page);
+      res.status(200).json(data);
+    } else {
+      const data = await UserModel.find({ gender: filter })
+
+        .limit(perpage)
+        .skip(perpage * page);
+      res.status(200).json(data);
     }
-    
   } catch (err) {
     res.status(404).json(err.message);
   }
 });
 
 user.post("/postuser", async (req, res) => {
-  let tempArray = [];
   try {
-    for (var i = 0; i < 50; i++) {
-      let { data } = await axios.get("https://randomuser.me/api/");
+    let { data } = await axios.get("https://randomuser.me/api/?results=100");
 
-      tempArray.push(data.results[0]);
-    }
-    await PostMultipleData(tempArray);
-    res.status(200).json(tempArray);
+    await PostMultipleData(data.results);
+    res.status(200).json(data.results);
   } catch (e) {
     res.status(404).json({ message: "Something! went wrong." });
   }

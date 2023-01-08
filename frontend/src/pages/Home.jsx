@@ -9,11 +9,17 @@ import { HandleDelete } from "../Utils/HandleDelete";
 import { HandlePostUser } from "../Utils/HandlePost";
 
 function Home() {
-  const { data } = useAllUserQuery(1);
 
+  // I get data from data base 
+  const { data } = useAllUserQuery({
+    page:1,
+    filter: undefined,
+  });
+  // Our post data
   const [postUser, { isLoading }] = usePostUserMutation();
+  //Our delete function 
   const [deleteUser] = useDeleteUserMutation();
-
+  
   return (
     <div
       style={{ background: "#e3e3e3", padding: "10px", textAlign: "center" }}

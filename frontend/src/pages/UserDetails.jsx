@@ -22,6 +22,8 @@ function UserDetails() {
   useEffect(() => {
     refetch();
   }, [filterData]);
+
+  // Handle filter funcion
   function handleFilter(e) {
     setFilter(e.target.value);
   }
@@ -44,6 +46,7 @@ function UserDetails() {
               cursor: "pointer",
             }}
           >
+            <option value={undefined}>Filter by gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
