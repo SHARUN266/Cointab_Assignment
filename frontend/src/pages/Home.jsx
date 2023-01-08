@@ -9,7 +9,7 @@ import { HandleDelete } from "../Utils/HandleDelete";
 import { HandlePostUser } from "../Utils/HandlePost";
 
 function Home() {
-
+  document.title="Home Page"
   // I get data from data base 
   const { data } = useAllUserQuery({
     page:1,

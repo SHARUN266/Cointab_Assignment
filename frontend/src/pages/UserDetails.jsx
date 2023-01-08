@@ -8,6 +8,7 @@ import UserListTable from "../components/UserListTable";
 import style from "../CSS/User.module.css";
 import { useAllUserQuery } from "../RTK/App";
 function UserDetails() {
+  document.title="Users Table"
   const [page, setPage] = useState(1);
   const [filterData, setFilter] = useState();
 
